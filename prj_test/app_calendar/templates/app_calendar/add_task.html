@@ -1,0 +1,45 @@
+{% extends 'app_calendar/dashboard.html' %}
+{% load static %}
+
+{% block css %}
+    <title>Список задач</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet"> 
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.css'>
+    <link rel="stylesheet" href="{% static 'app_calendar/calendar.css'%}">
+    <link rel="stylesheet" href="{% static 'app_calendar/calendar2.css'%}">
+{% endblock %}
+
+{% block content %}
+<div class='select date'>
+  <form class="form-inline" method="POST">
+    {% csrf_token %}
+    <div class="form-group mb-2 mr-sm-2">
+      <label>Название задачи</label>
+      <input type='text' class="form-control" name="title">
+    </div> 
+    <div class="form-group mb-2 mr-sm-2">
+      <label>Описание задачи</label>
+      <input type='text' class="form-control" name="description">
+    </div> 
+    <div class="form-group mb-2 mr-sm-2">
+      <label>Выбор даты</label>
+      <input type='text' class="form-control datetimepicker" name="date">
+    </div> 
+    <button type="submit" class="btn btn-primary mb-2">OK</button>
+  </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/i18n/datepicker.en.js'></script>
+    <script  src="{% static 'app_calendar/calendar1.js'%}"></script>
+{% endblock %}
