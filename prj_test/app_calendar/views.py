@@ -449,6 +449,7 @@ class ChangeStatusTaskToStart(ChangeStatusTaskAbstract):
     def __init__(self):
         ChangeStatusTaskAbstract.__init__(self)
         self.for_dashboard['title'] = 'Начать задачу заново.'
+        self.help_message['button'] = 'Начать'
 
     def modify_status(self, task):
         if task.status:
